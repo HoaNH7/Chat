@@ -48,12 +48,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        edtMessage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                checkKeyboard();
-            }
-        });
+//        edtMessage.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                checkKeyboard();
+//            }
+//        });
     }
     private void sendMessage() {
         String strMessage = edtMessage.getText().toString().trim();
@@ -72,24 +72,24 @@ public class MainActivity extends AppCompatActivity {
         edtMessage.setText("");
     }
 
-    private void checkKeyboard(){
-        final View activityRootView = findViewById(R.id.activityRoot);
-        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
-            @Override
-            public void onGlobalLayout() {
-                Rect r = new Rect();
-                //r will be populated with the coordinates of your view that area still visible
-                activityRootView.getWindowVisibleDisplayFrame(r);
-
-                int heightDiff = activityRootView.getRootView().getHeight() - r.height();
-                if(heightDiff > 0.25 * activityRootView.getRootView().getHeight()){
-                    // keyboard xuat hien thi scroll den vi tri ms nhat
-                    if(messageList.size() > 0){
-                        rcvMessage.scrollToPosition(messageList.size() - 1);
-                        activityRootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
-                    }
-                }
-            }
-        });
-    }
+//    private void checkKeyboard(){
+//        final View activityRootView = findViewById(R.id.activityRoot);
+//        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+//            @Override
+//            public void onGlobalLayout() {
+//                Rect r = new Rect();
+//                //r will be populated with the coordinates of your view that area still visible
+//                activityRootView.getWindowVisibleDisplayFrame(r);
+//
+//                int heightDiff = activityRootView.getRootView().getHeight() - r.height();
+//                if(heightDiff > 0.25 * activityRootView.getRootView().getHeight()){
+//                    // keyboard xuat hien thi scroll den vi tri ms nhat
+//                    if(messageList.size() > 0){
+//                        rcvMessage.scrollToPosition(messageList.size() - 1);
+//                        activityRootView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
+//                    }
+//                }
+//            }
+//        });
+//    }
 }
